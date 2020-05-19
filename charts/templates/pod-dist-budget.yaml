@@ -1,16 +1,16 @@
-{{- if .Values.pdb.create }}
+{{- if .Values.maxUnavailable }}
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
-  name: {{ include "consul.fullname" . }}-pdb
-  labels: {{- include "consul.labels" . | nindent 4 }}
+  name: "{{ template "consul.fullname" . }}-pdb"
+  labels:
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
+    chart: {{ template "consul.chart" . }}
+    component: "{{ .Release.Name }}-{{ .Values.Component }}"
 spec:
-  {{- if .Values.pdb.minAvailable }}
-  minAvailable: {{ .Values.pdb.minAvailable }}
-  {{- end }}
-  {{- if .Values.pdb.maxUnavailable }}
-  maxUnavailable: {{ .Values.pdb.maxUnavailable }}
-  {{- end }}
+  maxUnavailable: {{ .Values.maxUnavailable }}
   selector:
-    matchLabels: {{- include "consul.matchLabels" . | nindent 6 }}
+    matchLabels:
+      component: "{{ .Release.Name }}-{{ .Values.Component }}"
 {{- end }}

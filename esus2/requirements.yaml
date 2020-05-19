@@ -1,5 +1,5 @@
 dependencies:
 
   - name: consul
-    version: "7.0.15"
-    repository: https://charts.bitnami.com/bitnami/
+    version: "1.7.2"
+    repository: https://helm.releases.hashicorp.com
