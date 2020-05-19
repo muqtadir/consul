@@ -1,8 +1,25 @@
 apiVersion: v1
 data:
-  connection.json: |
+data:
+  config.json: |
     {
-      "datacenter":"dc2"
+    "datacenter":"dc2",
+    "domain":"consul",
+    "data_dir":"/opt/bitnami/consul/data",
+    "pid_file":"/opt/bitnami/consul/tmp/consul.pid",
+    "server":true,
+    "ui":false,
+    "bootstrap_expect":3,
+    "addresses": {
+        "http":"0.0.0.0"
+    },
+    "ports": {
+        "http":8500,
+        "dns":8600,
+        "serf_lan":8301,
+        "server":8300
+    },
+    "serf_lan":"0.0.0.0"
     }
 kind: ConfigMap
 metadata:
