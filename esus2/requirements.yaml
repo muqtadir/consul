@@ -3,4 +3,3 @@ dependencies:
   - name: consul
     version: "7.0.15"
     repository: https://charts.bitnami.com/bitnami/
-    condition: kubeStateMetrics.enabled
