@@ -1,4 +1,1 @@
-localConfig: |-
-  {
-   "datacenter":"dev-per"
-  }
+datacenter:dev-per
