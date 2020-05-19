@@ -1,0 +1,4 @@
+bases:
+- ../charts
+resources:
+- consul-configuration.yml
