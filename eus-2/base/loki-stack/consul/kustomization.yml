@@ -1,0 +1,6 @@
+resources:
+- ./clusterroles/consul.yaml
+- ./consul-secrete/consul-secret.yml
+- ./serviceaccounts/consul.yaml
+- ./services/consul.yaml
+- ./statefulsets/consul.yaml

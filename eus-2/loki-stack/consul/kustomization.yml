@@ -1,0 +1,8 @@
+resources:
+bases:
+- ../../base/loki-stack/consul
+namespace: monitoring
+configMapGenerator:
+- name: consul
+  files:
+    - configs/server.json
