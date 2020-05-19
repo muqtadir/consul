@@ -125,10 +125,10 @@ configmap: |
 
 ## Extra configuration that will be added to the default one.
 ##
-# localConfig: |-
-#   {
-#     "key": "value"
-#   }
+ localConfig: |-
+   {
+     "datacenter":"dev-qa",
+   }
 
 ## Number of HashiCorp Consul replicas to deploy
 ##
