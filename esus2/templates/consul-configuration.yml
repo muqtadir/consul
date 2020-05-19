@@ -10,7 +10,7 @@ metadata:
   labels:
     app: consul
     app.kubernetes.io/instance: consul
-    chart: consul-7.0.12
+    chart: consul-7.0.15
     heritage: Tiller
     release: consul
   name: consul-configuration
