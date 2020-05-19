@@ -5,7 +5,7 @@
   "client_addr": "0.0.0.0",
   "disable_host_node_id": true,
   "data_dir": "/consul/data",
-  "datacenter": "dc1",
+  "datacenter": "dc-devqa",
   "domain": "cluster.local",
   "key_file": "/etc/tls/consul-key.pem",
   "ports": {
