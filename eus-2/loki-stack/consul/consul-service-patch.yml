@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: consul
+spec:
+  selector:
+    matchLabels:
+      app: consul
+      component: server
+  replicas: 1

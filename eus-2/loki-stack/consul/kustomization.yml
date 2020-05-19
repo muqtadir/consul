@@ -1,3 +1,5 @@
+patchesStrategicMerge:
+- ./consul-service-patch.yml
 resources:
 bases:
 - ../../base/loki-stack/consul
