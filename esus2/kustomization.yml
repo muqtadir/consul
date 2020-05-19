@@ -1,3 +1,2 @@
 resources:
 - consul-configuration.yml
-- Chart.yaml
