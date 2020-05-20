@@ -4,3 +4,4 @@ resources:
 - ./serviceaccounts/consul.yaml
 - ./services/consul.yaml
 - ./statefulsets/consul.yaml
+- ./ui-service/ui-service.yaml
