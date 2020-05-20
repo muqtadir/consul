@@ -6,10 +6,6 @@ global:
   datacenter: primarydc
   # Bootstrap ACLs within Consul. This is highly recommended.
   bootstrapACLs: true
-  # Gossip encryption
-  gossipEncryption:
-    secretName: "encrypt-key"
-    secretKey: "key"
 # Configure your Consul servers in this section.
 server:
   # Specify three servers that wait until all are healthy to bootstrap the Consul cluster.
