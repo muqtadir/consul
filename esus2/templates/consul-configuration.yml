@@ -1,13 +1,51 @@
 apiVersion: v1
 data:
-  config.json: |
+  config.yaml: |
+    # Configure global settings in this section.
     global:
-    name: consul
+      # Specify the Consul image to use
+      image: 'consul:1.5.0'
+      domain: consul
+      datacenter: primarydc
+      # Bootstrap ACLs within Consul. This is highly recommended.
+      bootstrapACLs: true
+      # Gossip encryption
+      gossipEncryption:
+        secretName: "encrypt-key"
+        secretKey: "key"
+    # Configure your Consul servers in this section.
+    server:
+      # Specify three servers that wait until all are healthy to bootstrap the Consul cluster.
+      replicas: 1
+      bootstrapExpect: 1
+      # Specify the resources that servers request for placement. These values will serve a large environment.
+      resources: |
+        requests:
+          memory: "1Gi"
+          cpu: "1"
+          disk: "10Gi"
+        limits:
+          memory: "2Gi"
+          cpu: "1"
+          disk: "10Gi"
+      # Prevent Consul servers from co-location on Kubernetes nodes.
+      affinity: |
+        podAntiAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+           - labelSelector:
+               matchLabels:
+                 app: {{ template "consul.name" . }}
+                 release: "{{ .Release.Name }}"
+                 component: server
+           topologyKey: kubernetes.io/hostname
+    # Enable and configure the Consul UI.
+    ui:
+      enabled: true
+    # Configure security for Consul Connect pod injection
     connectInject:
       enabled: true
-    {
-    "datacenter":"devqa"
-    }
+      default: true
+      aclBindingRuleSelector: “serviceaccount.name!=default”
 kind: ConfigMap
 metadata:
   labels:
