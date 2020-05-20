@@ -1,0 +1,19 @@
+---
+# Source: consul/templates/ui-service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: consul-ui
+  labels:
+    app: consul
+    component: server
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+  selector:
+    app: consul
+    component: server
