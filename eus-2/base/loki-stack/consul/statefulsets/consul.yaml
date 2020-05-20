@@ -27,7 +27,7 @@ spec:
                   - key: app
                     operator: In
                     values:
-                      - consul
+                      - consul-test
               topologyKey: kubernetes.io/hostname
       terminationGracePeriodSeconds: 10
       securityContext:
