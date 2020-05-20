@@ -1,5 +1,5 @@
 dependencies:
 
   - name: consul
-    version: "1.7.3"
+    version: "0.21.0"
     repository: https://helm.releases.hashicorp.com
